@@ -1,0 +1,25 @@
+body{
+    background-color: #212529;
+    color: white;
+}
+.App{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.divText{
+    width: 350px;
+    height: 40vh;
+    text-align: start;
+}
+.btnIniciar{
+    background-color: #FD377E;
+    color: white;
+    border-style: none;
+    width: 250px;
+    height: 7vh;
+    border-radius: 5px;
+    margin-top: 5vh;
+    font-size: 20px;
+}
