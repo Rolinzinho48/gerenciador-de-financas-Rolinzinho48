@@ -43,6 +43,10 @@
     justify-content: center;
     font-size: 12px;
 }
+.divForm{
+    display: flex;
+    flex-direction: column;
+}
 .form>input[type="text"]{
     background-color:#F8F9FA;
     border-style: none;

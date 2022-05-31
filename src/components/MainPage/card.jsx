@@ -1,6 +1,6 @@
 import Lixeira from './trash.png'
 
-function Card({descricao,preco,tipo, remove}){
+function Card({descricao,preco,tipo, remove,renderizar}){
     return(
         <div className="card">
             <section>
@@ -8,7 +8,7 @@ function Card({descricao,preco,tipo, remove}){
                 <span>{tipo}</span>
             </section>
             <span>R${preco},00</span>
-            <button onClick={()=>{remove(descricao)}}><img src={Lixeira}/></button>
+            <button onClick={()=>{remove(descricao);renderizar(tipo)}}><img src={Lixeira}/></button>
         </div>
     )
 }
