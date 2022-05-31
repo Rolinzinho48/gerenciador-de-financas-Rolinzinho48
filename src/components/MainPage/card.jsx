@@ -2,12 +2,12 @@ import Lixeira from './trash.png'
 
 function Card({descricao,preco,tipo, remove}){
     return(
-        <div>
+        <div className="card">
             <section>
-                <span>{descricao}</span>
+                <span className="desc">{descricao}</span>
                 <span>{tipo}</span>
             </section>
-            <span>{preco}</span>
+            <span>R${preco},00</span>
             <button onClick={()=>{remove(descricao)}}><img src={Lixeira}/></button>
         </div>
     )

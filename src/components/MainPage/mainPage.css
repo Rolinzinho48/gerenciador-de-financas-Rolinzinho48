@@ -86,10 +86,19 @@
     font-size: 16px;
     
 }
+/*FIM FORM*/
 
 .divList{
-    width: 600px;
+    width: 650px;
     margin-left: 30px;
+}
+.divList>ul>.NoCard,.divList>ul{
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+    align-items: center;
+    overflow-y: auto;
 }
 .headerList{
     height: 5vh;
@@ -99,6 +108,7 @@
     align-items: center;
 }
 .headerList>ul{
+   
     width: 50%;
     display: flex;
     justify-content:space-around;
@@ -116,4 +126,36 @@
     background-color: #FD377E;
     color:white;
     transition:all 0.5s
+}
+.divList>ul>li{
+    list-style: none;
+    width: 100%;
+}
+.card{
+    background-color: #F8F9FA;
+    margin-bottom:5vh;
+    height: 13vh;
+    border-radius: 10px;
+    border-left: 5px solid #03B898; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.card>button{
+    border-style: none;
+    height: 5vh;
+    width: 30px;
+    border-radius: 5px;
+}
+.card>section{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.card>section>.desc{
+    font-size: 20px;
+    font-weight: 750;
 }

@@ -25,12 +25,12 @@ function Form({add}){
                     <section>
                         <label>Tipo de Valor</label>
                         <select  onChange={(event)=>{setTipo(event.target.value)}}>
-                            <option>Entrada</option>
-                            <option>Despesa</option>
+                            <option value ="Entrada" >Entrada</option>
+                            <option value ="Despesa" selected="selected">Despesa</option>
                         </select>
                     </section>
                 </div>
-                <input type="submit" value ="Inserir Valor" />
+                <input  type="submit" value ="Inserir Valor" />
             </form>
         </>
     )

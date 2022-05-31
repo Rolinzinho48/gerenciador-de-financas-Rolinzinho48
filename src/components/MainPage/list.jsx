@@ -22,9 +22,11 @@ function List({lista,remove}){
                 {
                     lista.length==0?(
                         <section className="NoCard">
+                            <h2>Você não possui nenhum lançamento</h2>
                             <img src={NoCard} alt="" />
                             <img src={NoCard} alt="" />
                             <img src={NoCard} alt="" />
+                           
                         </section>
                     ):(
                         lista.map((element,index)=>(

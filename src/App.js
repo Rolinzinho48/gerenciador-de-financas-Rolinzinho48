@@ -10,7 +10,8 @@ function App() {
 
   const [isLogin,setIsLogin] = useState(false)
   const [listTransactions, setListTransactions] = useState([
-    
+    {description:"SLASLA", type:"sla",value:12},
+    {description:"SLASLA", type:"sla",value:12}
   ])
 
 
