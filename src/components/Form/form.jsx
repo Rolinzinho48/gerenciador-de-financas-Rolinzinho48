@@ -16,8 +16,12 @@ function Form({add,lista}){
     useEffect(()=>{
         const soma = lista.reduce((acc,cur)=>{
             //se for despesa, multipla por -1
-            cur.type==="Despesa"?cur.value=cur.value*-1:cur.value=cur.value
-            return acc+cur.value
+            let sum
+            cur.type==="Despesa"?
+            sum= acc-cur.value:
+            sum= acc+cur.value;
+
+            return sum
            },0)
         
         setPrecoTotal(soma)
