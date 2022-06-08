@@ -1,4 +1,4 @@
-import Logo from './imagem'
+import Imagem from './imagem'
 import Text from './text'
 import './firstPage.css'
 
@@ -6,9 +6,8 @@ function FirstPage({LogIn}){
     return(
         <div className = "App">
             <Text LogIn={LogIn}/>
-            <Logo/>
+            <Imagem/>
         </div>
-       
     )
 }
 

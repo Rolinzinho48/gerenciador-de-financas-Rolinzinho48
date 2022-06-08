@@ -1,13 +1,13 @@
-import Lixeira from './trash.png'
+import Lixeira from '../../Assets/trash.png'
 
-function Card({descricao,preco,tipo, remove,renderizar}){
+function Card({classe,descricao,preco,tipo, remove,renderizar}){
     return(
-        <div className="card">
+        <div className={classe}>
             <section>
                 <span className="desc">{descricao}</span>
                 <span>{tipo}</span>
             </section>
-            <span>R${preco},00</span>
+            <span>R${Math.abs(preco)},00</span>
             <button onClick={()=>{remove(descricao);renderizar(tipo)}}><img src={Lixeira}/></button>
         </div>
     )

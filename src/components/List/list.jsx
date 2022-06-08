@@ -1,20 +1,31 @@
-import NoCard from "./NoCard.png"
-import Card from "./card"
+import NoCard from "../../Assets/NoCard.png"
+import Card from "../Card/card"
 
-import {useState} from "react"
+import {useState,useEffect} from "react"
 
 function List({lista,remove}){
 
    
     const [newList,setNewList] = useState(lista)
-    const [precoTotal,setPrecoTotal] = useState(0)
+   
+
+    useEffect(()=>{
+        filtro("Todos")
+    },[lista])
 
     function filtro(value){
-        const arr = lista.filter((element)=>{
-            return element.type===value
-        })
 
-        setNewList(arr)
+        if(value!=="Todos"){
+            const arr = lista.filter((element)=>{
+                return element.type===value
+            })
+
+            setNewList(arr)
+        }
+        else{
+            setNewList(lista)
+        }
+
     }
 
     
@@ -25,7 +36,7 @@ function List({lista,remove}){
                 <span>Resumo financeiro</span>
                 <ul>
                     <li>
-                        <button type="button" autoFocus onClick={()=>{setNewList(lista)}}>Todos</button>
+                        <button type="button" autoFocus onClick={()=>{filtro("Todos")}}>Todos</button>
                     </li>
                     <li>
                         <button onClick={()=>filtro("Entrada")}>Entrada</button>
@@ -38,7 +49,7 @@ function List({lista,remove}){
             <ul>
                 {
                     
-                    lista.length==0?(
+                    lista.length===0?
                         
                         <section className="NoCard">
                             <h2>Você não possui nenhum lançamento</h2>
@@ -47,12 +58,12 @@ function List({lista,remove}){
                             <img src={NoCard} alt="" />
                            
                         </section>
-                    ):(
+                    :
                         newList.map((element,index)=>(
-                            <li key={index}> <Card descricao={element.description} preco={element.value} tipo={element.type} remove={remove} renderizar={filtro}/> </li>          
+                            <li key={index}> <Card classe={"card " +element.type} descricao={element.description} preco={element.value} tipo={element.type} remove={remove} renderizar={filtro}/> </li>          
                         ))
                         
-                    )
+                    
                 }
             </ul>
         </div>

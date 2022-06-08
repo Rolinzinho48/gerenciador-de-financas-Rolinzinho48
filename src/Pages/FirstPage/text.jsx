@@ -1,6 +1,7 @@
-import Logo from './logo.png'
+import Logo from '../../Assets/logo.png'
 
 function Text({LogIn}){
+    
     return(
         <div className = "divText">
             <img src={Logo} alt="" />

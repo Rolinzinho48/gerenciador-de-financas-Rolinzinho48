@@ -1,36 +1,41 @@
-import {useState} from 'react'
-import ValorTotal from './valorTotal'
+import {useEffect, useState} from 'react'
+import ValorTotal from '../ValorTotal/valorTotal'
 
-function Form({add}){
+function Form({add,lista}){
 
     const [descricao,setDescricao]  = useState()
-    const [tipo, setTipo]           = useState()
+    const [tipo, setTipo]           = useState("Entrada")
     const [preco, setPreco]         = useState()
     const [precoTotal,setPrecoTotal]= useState(0)
 
     function handleAdd(){   
         add(descricao,tipo,preco)
-        somarValor(preco,tipo)
+        
     }
 
-    function somarValor(cont,sinal){
-       if(sinal =="Entrada"){
-           setPrecoTotal(precoTotal+parseInt(cont))
-       }else{
-        setPrecoTotal(precoTotal-cont)
-       }
-    }
+    useEffect(()=>{
+        const soma = lista.reduce((acc,cur)=>{
+            //se for despesa, multipla por -1
+            cur.type==="Despesa"?cur.value=cur.value*-1:cur.value=cur.value
+            return acc+cur.value
+           },0)
+        
+        setPrecoTotal(soma)
+
+    },[lista])
+
+    
 
     return(
         <div className = "divForm">
-            <form className="form" onSubmit={(event)=>{handleAdd(event.preventDefault()); event.target.reset()}}>
+            <form className="form" onSubmit={(event)=>{handleAdd(event.preventDefault()); event.target.reset();setTipo("Entrada")}}>
                 <label>Descrição</label>
                 <input type="text" placeholder="Digite aqui sua descrição" onChange={(event)=>{setDescricao(event.target.value)}}/>
                 <span>Ex:Compra de roupas</span>
                 <div>
                     <section>
                         <label >Valor</label>
-                        <input type="number" placeholder="Valor" onChange={(event)=>{setPreco(event.target.value)}}/>
+                        <input min="0" type="number" placeholder="Valor" onChange={(event)=>{setPreco(event.target.value)}}/>
                     </section>
                     <section>
                         <label>Tipo de Valor</label>
