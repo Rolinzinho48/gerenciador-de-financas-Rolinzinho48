@@ -1,5 +1,9 @@
+:root{
+    --bege:#D9CEC5;
+    --preto:212529;
+}
 body{
-    background-color: #212529;
+    background-color: var(--preto);
     color: white;
 }
 .App{
@@ -14,14 +18,19 @@ body{
     text-align: start;
 }
 .btnIniciar{
-    background-color: #FD377E;
-    color: white;
-    border-style: none;
+    background-color: transparent;
+    color: var(--bege);
+    border: 1px solid var(--bege);
     width: 250px;
     height: 7vh;
     border-radius: 5px;
     margin-top: 5vh;
     font-size: 20px;
+}
+.btnIniciar:hover{
+    background-color: var(--bege);
+    color: var(--preto);
+    transition: all 0.4s;
 }
 @media only screen and(max-width:500px){
 

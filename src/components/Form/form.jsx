@@ -7,6 +7,8 @@ function Form({add,lista}){
     const [tipo, setTipo]           = useState("Entrada")
     const [preco, setPreco]         = useState()
     const [precoTotal,setPrecoTotal]= useState(0)
+    const [valorEntrada,setValorEntrada]= useState(0)
+    const [valorSaida,setValorSaida]= useState(0)
 
     function handleAdd(){   
         add(descricao,tipo,preco)
@@ -14,18 +16,23 @@ function Form({add,lista}){
     }
 
     useEffect(()=>{
-        const soma = lista.reduce((acc,cur)=>{
-            //se for despesa, multipla por -1
-            let sum
-            cur.type==="Despesa"?
-            sum= acc-cur.value:
-            sum= acc+cur.value;
+        const entrada = lista.filter((value)=>{
+            return value.type==="Entrada"
+        })
+        const totalEntrada = entrada.map((value)=>{
+            return value.value
+        })
 
-            return sum
-           },0)
-        
-        setPrecoTotal(soma)
+        const saida = lista.filter((value)=>{
+            return value.type==="Despesa"
+        })
+        const totalSaida = saida.map((value)=>{
+            return value.value
+        })
 
+
+        setValorEntrada(totalEntrada)
+        setValorSaida(totalSaida)
     },[lista])
 
     
@@ -51,7 +58,7 @@ function Form({add,lista}){
                 </div>
                 <input  type="submit" value ="Inserir Valor" />
             </form>
-            <ValorTotal valorTotal={precoTotal}/>
+            <ValorTotal entrada={valorEntrada} saida ={valorSaida}/>
         </div>
         
     )

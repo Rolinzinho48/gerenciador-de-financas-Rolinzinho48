@@ -1,4 +1,4 @@
-import logo from '../../Assets/Nu Kenzie.png'
+import logo from '../../Assets/logo.png'
 
 function Header({logOut}){
     return(

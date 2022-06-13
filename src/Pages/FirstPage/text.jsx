@@ -1,4 +1,4 @@
-import Logo from '../../Assets/logo.png'
+import Logo from '../../Assets/Nu Kenzie.png'
 
 function Text({LogIn}){
     

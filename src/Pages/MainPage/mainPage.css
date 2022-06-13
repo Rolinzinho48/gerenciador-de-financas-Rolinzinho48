@@ -1,3 +1,8 @@
+:root{
+    --headerBackground:#373F4A;
+    --buttonBackground:#D9CEC5;
+    --preto:#212529;
+}
 .divMainPage{
     background-color: white;
     width: 100%;
@@ -6,7 +11,8 @@
 }
 
 .header{
-    background-color: #F8F9FA;
+    margin-top: 0vh;
+    background-color:var(--headerBackground);
     height: 10vh;
     display: flex;
     flex-direction: row;
@@ -15,33 +21,46 @@
     box-shadow: 0px 4px 32px -12px rgba(0, 0, 0, 0.25);
 }
 .header>button{
-    background-color: #E9ECEF;
-    border-style: none;
+    background-color: transparent;
+    color: var(--buttonBackground);
+    border:1px solid var(--buttonBackground);
     border-radius: 5px;
     width: 60px;
     height: 5vh;
 }
+.header>button:hover{
+    transition: all 0.4s;
+    background-color: var(--buttonBackground);
+    color: var(--headerBackground);
+    cursor:pointer;
+}
 
 /*BODY*/
 .body{
-    color:black;
-    margin-top: 6vh;
+    background-color:var(--preto) ;
+    color:white;
     width: 100%;
+    height: 90vh;
     display:flex;
     flex-direction: row;
     justify-content: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 .form{
+    margin-top: 10vh;
     text-align: start;
     color:black;
-    border:1px solid #E9ECEF;
+    background-color: white;
     width: 360px;
-    height: 350px;
+    min-height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: 12px;
+    border-radius: 5px;
 }
 .divForm{
     display: flex;
@@ -84,7 +103,7 @@
     border-style: none;
     width: 85%;
     height: 50px;
-    background-color: #FD377E;
+    background-color: var(--headerBackground);
     color: white;
     border-radius: 7px;
     font-size: 16px;
@@ -95,6 +114,7 @@
 .divList{
     width: 650px;
     margin-left: 30px;
+    margin-top: 10vh;
 }
 .divList>ul>.NoCard,.divList>ul{
     height: 65vh;
@@ -119,7 +139,7 @@
     list-style: none;
 }
 .headerList>ul>li>button{
-    background-color: #E9ECEF;
+    background-color: var(--buttonBackground);
     color:#5B6166;
     border-style: none;
     width: 80px;
@@ -127,7 +147,7 @@
     border-radius: 8px;
 }
 .headerList>ul>li>button:focus{
-    background-color: #FD377E;
+    background-color: var(--headerBackground);
     color:white;
     transition:all 0.5s
 }
@@ -136,7 +156,8 @@
     width: 100%;
 }
 .card{
-    background-color: #F8F9FA;
+    background-color: var(--headerBackground);
+    color: var(--buttonBackground);
     margin-bottom:5vh;
     height: 13vh;
     border-radius: 10px;
@@ -148,10 +169,14 @@
     padding-right: 15px;
 }
 .card>button{
+    background-color: var(--buttonBackground);
     border-style: none;
     height: 5vh;
     width: 30px;
     border-radius: 5px;
+}
+.card>button:hover{
+    cursor: pointer;
 }
 .card>section{
     display: flex;
