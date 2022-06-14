@@ -6,7 +6,7 @@ function Form({add,lista}){
     const [descricao,setDescricao]  = useState()
     const [tipo, setTipo]           = useState("Entrada")
     const [preco, setPreco]         = useState()
-    const [precoTotal,setPrecoTotal]= useState(0)
+    
     const [valorEntrada,setValorEntrada]= useState(0)
     const [valorSaida,setValorSaida]= useState(0)
 
@@ -19,22 +19,28 @@ function Form({add,lista}){
         const entrada = lista.filter((value)=>{
             return value.type==="Entrada"
         })
-        const totalEntrada = entrada.map((value)=>{
-            return value.value
-        })
+        const totalEntrada = entrada.reduce(function(total, numero){
+             return total + numero.value;
+        }, 0);
+       
+
 
         const saida = lista.filter((value)=>{
             return value.type==="Despesa"
         })
-        const totalSaida = saida.map((value)=>{
-            return value.value
-        })
+        const totalSaida = saida.reduce(function(total, numero){
+             return total + numero.value;
+        }, 0);
 
-
+            
+        
+        
         setValorEntrada(totalEntrada)
         setValorSaida(totalSaida)
     },[lista])
 
+    
+    
     
 
     return(

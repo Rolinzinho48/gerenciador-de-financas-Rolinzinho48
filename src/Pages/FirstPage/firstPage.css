@@ -1,6 +1,6 @@
 :root{
     --bege:#D9CEC5;
-    --preto:212529;
+    --preto:#212529;
 }
 body{
     background-color: var(--preto);
@@ -31,6 +31,7 @@ body{
     background-color: var(--bege);
     color: var(--preto);
     transition: all 0.4s;
+    cursor: pointer;
 }
 @media only screen and(max-width:500px){
 

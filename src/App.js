@@ -34,7 +34,6 @@ function App() {
   function removeTransacao(value){
 
     const newArr = listTransactions.filter((element)=>{
-      console.log(element)
       return element.description !=value
     })
 

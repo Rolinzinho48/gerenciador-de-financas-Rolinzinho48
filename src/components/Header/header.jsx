@@ -4,7 +4,7 @@ function Header({logOut}){
     return(
         <>
             <nav className="header">
-                <img src={logo} alt="" />
+                <img src={logo} onClick={logOut} alt="" />
                 <button onClick={logOut}>Inicio</button>
             </nav>
         </>

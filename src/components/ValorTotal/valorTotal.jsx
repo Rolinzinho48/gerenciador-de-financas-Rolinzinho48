@@ -10,11 +10,12 @@ function ValorTotal({entrada,saida}){
       const COLORS = ['#03B898', '#d31d10'];
 
     return(
-        <div>
-            <PieChart width={250} height={200} onMouseEnter={()=>this.onPieEnter}>
+        <div className="valorTotal">
+            <span>Saldo: {entrada-saida}</span>
+            <PieChart width={400} height={200} onMouseEnter={()=>this.onPieEnter}>
                 <Pie
                 data={data}
-                cx={150}
+                cx={175}
                 cy={100}
                 innerRadius={50}
                 outerRadius={80}      
@@ -25,8 +26,17 @@ function ValorTotal({entrada,saida}){
                 ))}
                 </Pie>
             </PieChart>
+            <section className="containerGeral">
+                <section className="containerEntrada">
+                    <div></div>
+                    <span>Entrada</span>
+                </section>
+                <section className="containerSaida">
+                    <div></div>
+                    <span>Despesa</span>
+                </section>
+            </section>
 
-            <span>{entrada-saida}</span>
         </div>
         
     )
